@@ -1,22 +1,36 @@
 
-public class Node{
-    private int value;
-    private Node next;
+public class Node<T>{
+     T value; //значение хранимое в цепи
+    Node<T> prev;//предыдущий элемент цепи
+     Node<T> next;//следующий элемент цепи
 
-    public void setValue(int value) {
-        this.value = value;
-    }
 
-    public void setNext(Node next) {
-        this.next = next;
-    }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public Node getNext() {
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public Node<T> getPrev() {
+        return prev;
+    }
+
+    public void setPrev(Node<T> prev) {
+        this.prev = prev;
+    }
+
+    public Node<T> getNext() {
         return next;
     }
+
+    public void setNext(Node<T> next) {
+        this.next = next;
+    }
+
+
+
 }
 
