@@ -1,33 +1,32 @@
 public class LinkedListNode<T> {
 
-    Node<T> head;
-    Node<T> tail;
-
-
-    public void addNode(Node<T> head,T value){
-
+    public void addNode(Node<T> head,T value){ //добавить элемент в конец цепи
         Node<T> current = head;
-        if (current == null){
+
+        if (current.getNext() == null){
+            Node<T> tail = new Node<>(value,current,null);
             current.setNext(tail);
-            tail.setValue(value);
-            tail.setNext(null);
-        }
-        if(current.getNext()==null){
-            current.setNext(tail);
-            tail.setValue(value);
-            tail.setNext(null);
         }
 
         while (current.getNext()!=null) {
-            System.out.println(current.getValue());
             current = current.getNext();
         }
-        tail = current.getNext();
-        tail.setValue(value);
-        tail.setNext(null);
+
+        current.setNext(new Node<>(value, current, null));
     }
-    //вывести на экран все значения из цепи
-    public void printNodes(Node<T> head){
+
+    public T getNode(Node<T> head, int index){ //получуить элемент из цепи по индексу
+        int s=0;
+        Node<T> current=head;
+
+        while (s!=index){
+            current = current.getNext();
+            s++;
+        }
+       return current.getValue();
+    }
+
+    public void printNodes(Node<T> head){ //вывести на экран все значения из цепи
         Node<T> a = head;
         while (a!=null){
             System.out.println(a.getValue());

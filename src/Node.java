@@ -4,7 +4,11 @@ public class Node<T>{
     Node<T> prev;//предыдущий элемент цепи
      Node<T> next;//следующий элемент цепи
 
-
+    public Node(T value, Node<T> prev, Node<T> next) {
+        this.value = value;
+        this.prev = prev;
+        this.next = next;
+    }
 
     public T getValue() {
         return value;
