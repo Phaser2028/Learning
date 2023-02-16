@@ -1,8 +1,8 @@
 
-public class Node<T>{
-     T value; //значение хранимое в цепи
+public class Node<T> {
+    T value; //значение хранимое в цепи
     Node<T> prev;//предыдущий элемент цепи
-     Node<T> next;//следующий элемент цепи
+    Node<T> next;//следующий элемент цепи
 
     public Node(T value, Node<T> prev, Node<T> next) {
         this.value = value;
@@ -33,7 +33,6 @@ public class Node<T>{
     public void setNext(Node<T> next) {
         this.next = next;
     }
-
 
 
 }
