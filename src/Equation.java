@@ -5,29 +5,25 @@ public class Equation {
         return Math.cos(Math.pow(x, 5)) + (Math.pow(x, 4)) - (345.3 * x) - 23;
     }
 
-    public static void solve(double l, double r) {
+    public static void solve(double l, double r, double eps) {
+
         double c = (l + r) / 2;
-        double eps = 0.001;
 
-        if (F(l) == 0) {
-            System.out.println(l);
-        }
-        if (F(r) == 0) {
-            System.out.println(r);
-        }
+        if (r - l > eps) {
 
-
-        while (r - l >= eps) {
-
-            c = (l + r) / 2;
             if (Math.signum(F(l)) != Math.signum(F(c))) {
                 r = c;
             } else {
                 l = c;
             }
 
+            solve(l, r, eps);
+
+        } else if (r - l <= eps) {
+            System.out.println(c);
         }
-        System.out.println(c);
+
+
     }
 
 }
