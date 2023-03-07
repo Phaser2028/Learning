@@ -1,12 +1,28 @@
 package BinarySearchTree;
 
+/**
+ *  INPUT:
+ *         String[] arr = new String[]{"name1","name2","name3","name4","name5"};
+ *         int[] num = new int[]{10,4,51,2,434};
+ *         NodeTree root = new NodeTree(0,"0");
+ *         for (int i = 0; i < arr.length; i++) {
+ *             BinaryTree.insert(root,num[i],arr[i]);
+ *             System.out.println(BinaryTree.get(root,num[i]));
+ *         }
+ *  OUTPUT:
+ *         Node{value=name1}
+ *         Node{value=name2}
+ *         Node{value=name3}
+ *         Node{value=name4}
+ *         Node{value=name5}
+ */
+
 public class BinaryTree {
     public static NodeTree get(NodeTree node, int key) {//рекурсивный метод получения ветки
 
         if (key == node.key) {//если ключи совпадают, то вернуть ветку
             return node;
         }
-
 
         if (node.right != null & key > node.key) {//проверка на наличие правой ветки
             node = node.right;
@@ -15,14 +31,13 @@ public class BinaryTree {
             return node;
         }
 
-        if (node.left == null) {//проверка на наличие левой ветки
+        if (node.left != null & key < node.key) {//проверка на наличие левой ветки
+            node = node.left;
+            get(node, key);//вызов рекурсии
+        } else if (node.left == null) {
             return node;
-        } else {
-            if (key < node.key) {
-                node = node.left;
-                get(node, key);//вызов рекурсии
-            }
         }
+
         return get(node, key);//вызов рекурсии
     }
 
