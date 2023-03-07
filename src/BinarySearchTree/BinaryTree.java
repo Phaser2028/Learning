@@ -35,10 +35,10 @@ public class BinaryTree {
 
 
         if(node.right == null){
-            node.right=new NodeTree(key, data, node);
+            node.right=new NodeTree(key, data);
         }
         if(node.left == null){
-            node.left=new NodeTree(key, data, node);
+            node.left=new NodeTree(key, data);
         }
 
         if (key > node.key) {
