@@ -10,9 +10,8 @@ public class NodeTree {
     public NodeTree(int key, String value) { //конструктор дерева
         this.key = key;
         this.value = value;
-
-
     }
+
     @Override
     public String toString() {
         return "Node{" + "value=" + value + '}';
