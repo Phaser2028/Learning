@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class MinAvgMax {
     public MinAvgMax(double[] array){
 

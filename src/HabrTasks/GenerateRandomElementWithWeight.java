@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class GenerateRandomElementWithWeight {
    private int[] valuesArr;
    private int[] weightsArr;

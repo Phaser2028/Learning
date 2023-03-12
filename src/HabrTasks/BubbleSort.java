@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class BubbleSort {
     public BubbleSort(int[] array) {
 

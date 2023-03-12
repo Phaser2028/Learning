@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class Prime {
     public static boolean p(int n) {
         int q = 0;

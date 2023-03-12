@@ -1,4 +1,4 @@
-package BinarySearchTree;
+package HabrTasks.BinarySearchTree;
 
 public class NodeTree {
 

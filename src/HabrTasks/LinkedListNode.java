@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class LinkedListNode<T> {
 
     public void addNode(Node<T> head,T value){ //добавить элемент в конец цепи

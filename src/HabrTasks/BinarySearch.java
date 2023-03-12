@@ -1,8 +1,10 @@
+package HabrTasks;
+
 public class BinarySearch {
     /*
         int[] array = {1, 1, 3, 4, 5, 66, 7, 8, 9, 10, 11, 112, 256};
-        new BubbleSort(array);
-        System.out.println(new BinarySearch().BSearch(array,66));
+        new HabrTasks.BubbleSort(array);
+        System.out.println(new HabrTasks.BinarySearch().BSearch(array,66));
         -->true
      */
     public boolean BSearch(int[] array, int value) {

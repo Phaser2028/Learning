@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class Equation {
 
 

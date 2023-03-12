@@ -1,4 +1,4 @@
-package ThreeDimShapes;
+package HabrTasks.ThreeDimShapes;
 
 public class Pyramid extends Shape{
     private double s;

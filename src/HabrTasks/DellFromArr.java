@@ -1,3 +1,5 @@
+package HabrTasks;
+
 public class DellFromArr {
     public static int[] NewArr(int[] arr, int n) {
         int rc = 0;

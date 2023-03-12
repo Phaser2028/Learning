@@ -1,4 +1,4 @@
-package ThreeDimShapes;
+package HabrTasks.ThreeDimShapes;
 
 public class Shape {
     private double volume;

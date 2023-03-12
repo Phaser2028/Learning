@@ -1,5 +1,6 @@
+package HabrTasks;
 
-public class Node<T> {
+class Node<T> {
     T value; //значение хранимое в цепи
     Node<T> prev;//предыдущий элемент цепи
     Node<T> next;//следующий элемент цепи
