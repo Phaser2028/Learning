@@ -1,6 +1,7 @@
 package HackerRank;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -36,10 +37,14 @@ public class Solutions {
         }
         return true;
     }
+    public static boolean ipValidator(String str){
+        String regex = "((2[0-5][0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|([0-9][0-9]{1}))(\\.|$)){4}";
+        Pattern pattern = Pattern.compile(regex);
+        return str.matches(pattern.pattern());
+    }
 
     public static void PatternCompileValidator(String str) {
         Scanner in = new Scanner(System.in);
-
         try {
             Pattern.compile(str);
             System.out.println("Valid");
