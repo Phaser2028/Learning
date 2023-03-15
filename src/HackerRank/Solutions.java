@@ -30,7 +30,7 @@ public class Solutions {
 
         while (cq != countQuery) {
 
-            String query = in.nextLine();//3. Запрос
+            String query = in.nextLine();
 
             if (query.equals("Insert")) {
 
@@ -43,7 +43,7 @@ public class Solutions {
                 cq++;
             } else if (query.equals("Delete")) {
 
-                int index = Integer.parseInt(in.nextLine());//4. Запросы
+                int index = Integer.parseInt(in.nextLine());
                 list.remove(index);
 
                 cq++;
