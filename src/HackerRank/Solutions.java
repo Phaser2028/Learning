@@ -1,41 +1,63 @@
 package HackerRank;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 
 public class Solutions {
 
-    public void Lister(){
-        Scanner in = new Scanner(System.in);
+    public  static void Lister() {
+        final Scanner in = new Scanner(System.in);
+
         String[] arr;
-        ArrayList<Integer> list = new ArrayList<>();
-        //in.nextLine().replaceAll("\\s+", "").split("")
+        ArrayList<String> list;
 
-        while (true) {
+        String insertElem;
 
-            int len = in.nextInt();
+        int countQuery;
+        int cq = 0;
 
-           arr = in.nextLine().replaceAll("\\s+", "").split("");
-           list = new ArrayList<>(Stream.of(Arrays.asList(arr)).forEach(x->Integer.parseInt(x.toString())));
+        System.out.print("Введите массив:");
+        arr = in.nextLine().split(" ");//1. Запрос
 
+        list = new ArrayList<>(Arrays.asList(arr));
+        list.forEach(x -> System.out.print(x + " "));
+        System.out.println("\n");
 
+        System.out.print("Введите кол-во запросов:");
+        countQuery = Integer.parseInt(in.nextLine());
 
+        while (cq!=countQuery) {
+            System.out.print("Введите запрос:");
+            String query = in.nextLine();//3. Запрос
 
+            if (query.equals("Insert")) {
+                System.out.println("Введите сначала индекс, затем значение:");
+                insertElem = in.nextLine();
 
+                int index = Integer.parseInt(insertElem.replaceAll("\\D\\S+", ""));
+                String data = insertElem.replaceAll("\\S+\\D", "");
+                list.add(index, data);
+                list.forEach(x -> System.out.print(x + " "));
+                System.out.println("\n");
 
+                cq++;
+            } else if (query.equals("Delete")) {
+                System.out.println("Введите индекс:");
+                int index = Integer.parseInt(in.nextLine());//4. Запросы
+                list.remove(index);
+                list.forEach(x -> System.out.print(x + " "));
+                System.out.println("\n");
+
+                cq++;
+            }
         }
+
     }
-
-
 
 
     public static void Splitter(String str) {
@@ -68,7 +90,8 @@ public class Solutions {
         }
         return true;
     }
-    public static boolean ipValidator(String str){
+
+    public static boolean ipValidator(String str) {
         String regex = "((2[0-5][0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|([0-9][0-9]{1}))(\\.|$)){4}";
         Pattern pattern = Pattern.compile(regex);
         return str.matches(pattern.pattern());
