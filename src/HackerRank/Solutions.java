@@ -7,11 +7,10 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 
-
 public class Solutions {
 
-    public  static void Lister() {
-        final Scanner in = new Scanner(System.in);
+    public static void Lister() {
+        Scanner in = new Scanner(System.in);
 
         String[] arr;
         ArrayList<String> list;
@@ -21,41 +20,36 @@ public class Solutions {
         int countQuery;
         int cq = 0;
 
-        System.out.print("Введите массив:");
-        arr = in.nextLine().split(" ");//1. Запрос
 
+
+        arr = in.nextLine().split(" ");
         list = new ArrayList<>(Arrays.asList(arr));
-        list.forEach(x -> System.out.print(x + " "));
-        System.out.println("\n");
 
-        System.out.print("Введите кол-во запросов:");
-        countQuery = Integer.parseInt(in.nextLine());
 
-        while (cq!=countQuery) {
-            System.out.print("Введите запрос:");
+        countQuery = Integer.parseInt(in.next());
+
+        while (cq != countQuery) {
+
             String query = in.nextLine();//3. Запрос
 
             if (query.equals("Insert")) {
-                System.out.println("Введите сначала индекс, затем значение:");
+
                 insertElem = in.nextLine();
 
                 int index = Integer.parseInt(insertElem.replaceAll("\\D\\S+", ""));
                 String data = insertElem.replaceAll("\\S+\\D", "");
                 list.add(index, data);
-                list.forEach(x -> System.out.print(x + " "));
-                System.out.println("\n");
 
                 cq++;
             } else if (query.equals("Delete")) {
-                System.out.println("Введите индекс:");
+
                 int index = Integer.parseInt(in.nextLine());//4. Запросы
                 list.remove(index);
-                list.forEach(x -> System.out.print(x + " "));
-                System.out.println("\n");
 
                 cq++;
             }
         }
+        list.forEach(x -> System.out.print(x + " "));
 
     }
 
