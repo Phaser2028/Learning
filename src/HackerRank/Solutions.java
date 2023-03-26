@@ -9,6 +9,20 @@ import java.util.regex.PatternSyntaxException;
 
 public class Solutions {
 
+
+    //https://www.hackerrank.com/challenges/valid-username-checker
+    public static boolean usernameValidator(String username){
+        String regex = "^[A-Za-z]\\w{7,29}";
+        Pattern pattern = Pattern.compile(regex);
+        return username.matches(pattern.pattern());
+    }
+
+
+
+
+
+
+
     public static void Lister() {
         Scanner in = new Scanner(System.in);
 
@@ -35,17 +49,14 @@ public class Solutions {
             if (query.equals("Insert")) {
 
                 insertElem = in.nextLine();
-
                 int index = Integer.parseInt(insertElem.replaceAll("\\D\\S+", ""));
                 String data = insertElem.replaceAll("\\S+\\D", "");
                 list.add(index, data);
-
                 cq++;
             } else if (query.equals("Delete")) {
 
                 int index = Integer.parseInt(in.nextLine());
                 list.remove(index);
-
                 cq++;
             }
         }
