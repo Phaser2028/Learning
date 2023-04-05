@@ -11,6 +11,21 @@ import java.util.regex.PatternSyntaxException;
 public class Solutions {
 
 
+
+    //https://www.hackerrank.com/challenges/java-exception-handling
+    public static class MyCalculator {
+        public static long power(int n, int p) throws Exception {
+
+            if (n == 0 && p == 0) {
+                throw new Exception("n and p should not be zero.");
+            } else if (n < 0 || p < 0) {
+                throw new Exception("n or p should not be negative.");
+            } else {
+                return (long) Math.pow(n, p);
+            }
+        }
+    }
+
     //https://www.hackerrank.com/challenges/tag-content-extractor
     public static void TagContentExtractor(){
         Scanner in = new Scanner(System.in);
@@ -33,19 +48,12 @@ public class Solutions {
         }
     }
 
-
-
-
-
-
-
     //https://www.hackerrank.com/challenges/valid-username-checker
     public static boolean usernameValidator(String username){
         String regex = "^[A-Za-z]\\w{7,29}";
         Pattern pattern = Pattern.compile(regex);
         return username.matches(pattern.pattern());
     }
-
 
     public static void Lister() {
         Scanner in = new Scanner(System.in);
