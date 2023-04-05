@@ -3,11 +3,40 @@ package HackerRank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 
 public class Solutions {
+
+
+    //https://www.hackerrank.com/challenges/tag-content-extractor
+    public static void TagContentExtractor(){
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
+
+        while (testCases-- > 0) {
+            String str = in.nextLine();
+
+            boolean matchFound = false;
+            Pattern pattern = Pattern.compile("<(.+)>([^<]+)</\\1>");
+            Matcher matcher = pattern.matcher(str);
+
+            while (matcher.find()) {
+                System.out.println(matcher.group(2));
+                matchFound = true;
+            }
+            if (!matchFound) {
+                System.out.println("None");
+            }
+        }
+    }
+
+
+
+
+
 
 
     //https://www.hackerrank.com/challenges/valid-username-checker
@@ -16,11 +45,6 @@ public class Solutions {
         Pattern pattern = Pattern.compile(regex);
         return username.matches(pattern.pattern());
     }
-
-
-
-
-
 
 
     public static void Lister() {
