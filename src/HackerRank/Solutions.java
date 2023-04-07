@@ -20,11 +20,11 @@ public class Solutions {
         int fromEnd=0;
         int fromBeginning=0;
 
-        for (int j = 0; j <= n/2; j++) {//ñîçäàíèå êíèãè ñ n ñòðàíèö
+        for (int j = 0; j <= n/2; j++) {//создание книги с n страниц
             lists.add(new ArrayList<>());
         }
 
-        for (int j = 0; j <= n; j+=2) {//âñòàâêà ñòðàíèö â êíèãó 
+        for (int j = 0; j <= n; j+=2) {//вставка страниц в книгу 
             ArrayList<Integer> list;
 
             list = lists.get(j/2);
@@ -34,7 +34,7 @@ public class Solutions {
 
         }
 
-        //ïîäñ÷¸ò ïåðåëèñòûâàíèé îò íà÷àëà êíèãè äî íóæíîé ñòðàíèöû
+        //подсчёт перелистываний от начала книги до нужной страницы
         for (int i = 0; i < lists.size(); i++) {
             ArrayList<Integer> list = lists.get(i);
             for (Integer integer : list) {
@@ -45,7 +45,7 @@ public class Solutions {
             }
         }
 
-        //ïîäñ÷¸ò ïåðåëèñòûâàíèé îò êîíöà êíèãè äî íóæíîé ñòðàíèöû
+         //подсчёт перелистываний от конца книги до нужной страницы
         for (int i = lists.size(); i > 0; i--) {
             ArrayList<Integer> list = lists.get(i-1);
             for (Integer integer : list) {
