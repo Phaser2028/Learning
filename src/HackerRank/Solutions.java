@@ -13,6 +13,55 @@ import java.util.stream.Stream;
 
 public class Solutions {
 
+
+    //https://www.hackerrank.com/challenges/drawing-book
+    public static int pageCounter(int n, int p){
+        ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
+        int fromEnd=0;
+        int fromBeginning=0;
+
+        for (int j = 0; j <= n/2; j++) {//создание книги с n страниц
+            lists.add(new ArrayList<>());
+        }
+
+        for (int j = 0; j <= n; j+=2) {//вставка страниц в книгу
+            ArrayList<Integer> list;
+
+            list = lists.get(j/2);
+            list.add(j);
+            list.add(j+1);
+
+
+        }
+
+        //подсчёт перелистываний от начала книги до нужной страницы
+        for (int i = 0; i < lists.size(); i++) {
+            ArrayList<Integer> list = lists.get(i);
+            for (Integer integer : list) {
+                if (integer == p) {
+                    fromBeginning = i;
+                    break;
+                }
+            }
+        }
+
+        //подсчёт перелистываний от конца книги до нужной страницы
+        for (int i = lists.size(); i > 0; i--) {
+            ArrayList<Integer> list = lists.get(i-1);
+            for (Integer integer : list) {
+                if (integer == p) {
+                    fromEnd = lists.size()-i;
+                    break;
+                }
+            }
+        }
+
+        return Math.min(fromBeginning, fromEnd);
+
+    }
+
+
+
     //https://www.hackerrank.com/challenges/java-arraylist
     public void ArrayLister(){
         Scanner in = new Scanner(System.in);
@@ -124,7 +173,6 @@ public class Solutions {
         list.forEach(x -> System.out.print(x + " "));
 
     }
-
 
     public static void Splitter(String str) {
         str = str.trim();
