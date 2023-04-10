@@ -13,6 +13,13 @@ import java.util.stream.Stream;
 public class Solution {
 
 
+    //https://www.hackerrank.com/challenges/java-biginteger
+    public static void additionAndMultiplicationBigIntegers(String firstNum, String secondNum){
+        System.out.println(new BigInteger(firstNum).add(new BigInteger(secondNum)));
+        System.out.println(new BigInteger(firstNum).multiply(new BigInteger(secondNum)));
+    }
+
+
     //https://www.hackerrank.com/challenges/java-primality-test
     public static String primalityTest(String n){
         return new BigInteger(n).isProbablePrime(1)?"prime":"not prime";
