@@ -1,9 +1,8 @@
 package HackerRank;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -11,27 +10,51 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-public class Solutions {
+public class Solution {
+
+
+    //https://www.hackerrank.com/challenges/java-primality-test
+    public static String primalityTest(String n){
+        return new BigInteger(n).isProbablePrime(1)?"prime":"not prime";
+    }
+
+
+    //https://www.hackerrank.com/challenges/sock-merchant
+    public static int sockMerchant(int n, List<Integer> ar) {
+        Collections.sort(ar);
+        Set<Integer> set = new HashSet<>();
+        int countPare = 0;
+        
+        for(int i=0; i<n; i++) {
+            if(!set.add(ar.get(i))) {
+                System.out.println(ar.get(i));
+                countPare++;
+            }
+        }
+
+
+        return countPare;
+
+    }
 
 
     //https://www.hackerrank.com/challenges/drawing-book
-    public static int pageCounter(int n, int p){
+    public static int pageCounter(int n, int p) {
         ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
-        int fromEnd=0;
-        int fromBeginning=0;
 
-        for (int j = 0; j <= n/2; j++) {//создание книги с n страниц
+        int fromEnd = 0;
+        int fromBeginning = 0;
+
+        for (int j = 0; j <= n / 2; j++) {//создание книги с n страниц
             lists.add(new ArrayList<>());
         }
 
-        for (int j = 0; j <= n; j+=2) {//вставка страниц в книгу
+        for (int j = 0; j <= n; j += 2) {//вставка страниц в книгу
             ArrayList<Integer> list;
 
-            list = lists.get(j/2);
+            list = lists.get(j / 2);
             list.add(j);
-            list.add(j+1);
-
-
+            list.add(j + 1);
         }
 
         //подсчёт перелистываний от начала книги до нужной страницы
@@ -47,10 +70,10 @@ public class Solutions {
 
         //подсчёт перелистываний от конца книги до нужной страницы
         for (int i = lists.size(); i > 0; i--) {
-            ArrayList<Integer> list = lists.get(i-1);
+            ArrayList<Integer> list = lists.get(i - 1);
             for (Integer integer : list) {
                 if (integer == p) {
-                    fromEnd = lists.size()-i;
+                    fromEnd = lists.size() - i;
                     break;
                 }
             }
@@ -61,31 +84,29 @@ public class Solutions {
     }
 
 
-
     //https://www.hackerrank.com/challenges/java-arraylist
-    public void ArrayLister(){
+    public void ArrayLister() {
         Scanner in = new Scanner(System.in);
         int linesCount = in.nextInt();
 
         List<ArrayList<Integer>> lists = new ArrayList<>();
         lists.add(null);
-        while(linesCount-- >0){
+        while (linesCount-- > 0) {
             int line = in.nextInt();
             ArrayList<Integer> list = new ArrayList<>();
             list.add(null);
             lists.add(list);
-            while (line-->0) {
+            while (line-- > 0) {
                 list.add(in.nextInt());
             }
         }
 
         int queryCount = in.nextInt();
-        while (queryCount-->0){
+        while (queryCount-- > 0) {
             int query = in.nextInt();
             try {
                 System.out.println(lists.get(query).get(in.nextInt()));
-            }
-            catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
                 System.out.println("ERROR!");
             }
         }

@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.BubleSort;
 
 public class BubbleSort {
     public BubbleSort(int[] array) {

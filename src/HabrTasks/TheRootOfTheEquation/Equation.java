@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.TheRootOfTheEquation;
 
 public class Equation {
 

@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.LinkedList;
 
 public class LinkedListNode<T> {
 

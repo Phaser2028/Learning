@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.GenerateRandomElementWithWeight;
 
 public class GenerateRandomElementWithWeight {
    private int[] valuesArr;

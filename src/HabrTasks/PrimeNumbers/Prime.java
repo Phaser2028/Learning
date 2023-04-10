@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.PrimeNumbers;
 
 public class Prime {
     public static boolean p(int n) {

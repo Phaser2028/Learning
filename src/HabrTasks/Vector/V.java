@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.Vector;
 
 public class V {
 

@@ -1,4 +1,4 @@
-package HabrTasks;
+package HabrTasks.LinkedList;
 
 class Node<T> {
     T value; //значение хранимое в цепи
