@@ -12,6 +12,30 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+    //https://www.hackerrank.com/challenges/java-negative-subarray
+    public static void countNegativeSumsOfSubArrays() {
+        Scanner in = new Scanner(System.in);
+
+        int countNegativeSumsOfSubArrays=0;
+
+        int lengthOfArray = in.nextInt();
+
+        int[] array = new int[lengthOfArray];
+
+
+        for (int i = 0; i < lengthOfArray; i++) {
+            array[i]= in.nextInt();
+        }
+
+        for (int i = 0; i < lengthOfArray*lengthOfArray; i++) {
+            for (int j = i+1; j < lengthOfArray+1; j++) {
+                if(Math.signum(Arrays.stream(Arrays.copyOfRange(array, i,j)).sum())==-1){
+                    countNegativeSumsOfSubArrays++;
+                }
+            }
+        }
+        System.out.println(countNegativeSumsOfSubArrays);
+    }
 
     //https://www.hackerrank.com/challenges/java-biginteger
     public static void additionAndMultiplicationBigIntegers(String firstNum, String secondNum){
