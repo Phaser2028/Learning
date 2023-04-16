@@ -13,12 +13,38 @@ import java.util.stream.Stream;
 public class Solution {
 
 
+
+
+    //https://www.hackerrank.com/challenges/java-generics
+/**
+    public class Solution<T> {
+
+        public Solution(T[] array) {
+            for (T element :
+                    array) {
+                System.out.println(element);
+            }
+        }
+
+        public static void main(String[] args) {
+            Integer[] numbers = {1,2,3};
+            String[] words = {"Hello", "World"};
+
+            Solution<Integer> output1 = new Solution<>(numbers);
+
+            Solution<String> output2 = new Solution<>(words);
+
+        }
+    }
+*/
+
+
     //https://www.hackerrank.com/challenges/java-hashset
-    public void numbersOfUniquePairs(){
+    public static void numbersOfUniquePairs() {
         Scanner s = new Scanner(System.in);
         int t = s.nextInt();
-        String [] pair_left = new String[t];
-        String [] pair_right = new String[t];
+        String[] pair_left = new String[t];
+        String[] pair_right = new String[t];
 
         for (int i = 0; i < t; i++) {
             pair_left[i] = s.next();
@@ -26,16 +52,14 @@ public class Solution {
         }
 
 
-
         Set<String> names = new HashSet<>();
-        int numberOfUniquePairs=0;
+        int numberOfUniquePairs = 0;
         for (int i = 0; i < t; i++) {
 
-            if (names.add(pair_left[i]+", "+pair_right[i])){
+            if (names.add(pair_left[i] + ", " + pair_right[i])) {
                 numberOfUniquePairs++;
                 System.out.println(numberOfUniquePairs);
-            }
-            else {
+            } else {
                 System.out.println(numberOfUniquePairs);
             }
         }
@@ -46,7 +70,7 @@ public class Solution {
     public static void countNegativeSumsOfSubArrays() {
         Scanner in = new Scanner(System.in);
 
-        int countNegativeSumsOfSubArrays=0;
+        int countNegativeSumsOfSubArrays = 0;
 
         int lengthOfArray = in.nextInt();
 
@@ -54,12 +78,12 @@ public class Solution {
 
 
         for (int i = 0; i < lengthOfArray; i++) {
-            array[i]= in.nextInt();
+            array[i] = in.nextInt();
         }
 
-        for (int i = 0; i < lengthOfArray*lengthOfArray; i++) {
-            for (int j = i+1; j < lengthOfArray+1; j++) {
-                if(Math.signum(Arrays.stream(Arrays.copyOfRange(array, i,j)).sum())==-1){
+        for (int i = 0; i < lengthOfArray * lengthOfArray; i++) {
+            for (int j = i + 1; j < lengthOfArray + 1; j++) {
+                if (Math.signum(Arrays.stream(Arrays.copyOfRange(array, i, j)).sum()) == -1) {
                     countNegativeSumsOfSubArrays++;
                 }
             }
@@ -68,15 +92,15 @@ public class Solution {
     }
 
     //https://www.hackerrank.com/challenges/java-biginteger
-    public static void additionAndMultiplicationBigIntegers(String firstNum, String secondNum){
+    public static void additionAndMultiplicationBigIntegers(String firstNum, String secondNum) {
         System.out.println(new BigInteger(firstNum).add(new BigInteger(secondNum)));
         System.out.println(new BigInteger(firstNum).multiply(new BigInteger(secondNum)));
     }
 
 
     //https://www.hackerrank.com/challenges/java-primality-test
-    public static String primalityTest(String n){
-        return new BigInteger(n).isProbablePrime(1)?"prime":"not prime";
+    public static String primalityTest(String n) {
+        return new BigInteger(n).isProbablePrime(1) ? "prime" : "not prime";
     }
 
 
