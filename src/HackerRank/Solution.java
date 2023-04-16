@@ -12,6 +12,36 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+
+    //https://www.hackerrank.com/challenges/java-hashset
+    public void numbersOfUniquePairs(){
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        String [] pair_left = new String[t];
+        String [] pair_right = new String[t];
+
+        for (int i = 0; i < t; i++) {
+            pair_left[i] = s.next();
+            pair_right[i] = s.next();
+        }
+
+
+
+        Set<String> names = new HashSet<>();
+        int numberOfUniquePairs=0;
+        for (int i = 0; i < t; i++) {
+
+            if (names.add(pair_left[i]+", "+pair_right[i])){
+                numberOfUniquePairs++;
+                System.out.println(numberOfUniquePairs);
+            }
+            else {
+                System.out.println(numberOfUniquePairs);
+            }
+        }
+    }
+
+
     //https://www.hackerrank.com/challenges/java-negative-subarray
     public static void countNegativeSumsOfSubArrays() {
         Scanner in = new Scanner(System.in);
@@ -47,25 +77,6 @@ public class Solution {
     //https://www.hackerrank.com/challenges/java-primality-test
     public static String primalityTest(String n){
         return new BigInteger(n).isProbablePrime(1)?"prime":"not prime";
-    }
-
-
-    //https://www.hackerrank.com/challenges/sock-merchant
-    public static int sockMerchant(int n, List<Integer> ar) {
-        Collections.sort(ar);
-        Set<Integer> set = new HashSet<>();
-        int countPare = 0;
-        
-        for(int i=0; i<n; i++) {
-            if(!set.add(ar.get(i))) {
-                System.out.println(ar.get(i));
-                countPare++;
-            }
-        }
-
-
-        return countPare;
-
     }
 
 
