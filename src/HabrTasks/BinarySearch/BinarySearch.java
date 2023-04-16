@@ -3,8 +3,8 @@ package HabrTasks.BinarySearch;
 public class BinarySearch {
     /*
         int[] array = {1, 1, 3, 4, 5, 66, 7, 8, 9, 10, 11, 112, 256};
-        new HabrTasks.BubleSort.BubbleSort(array);
-        System.out.println(new HabrTasks.BinarySearch.BinarySearch().BSearch(array,66));
+        new main.java.HabrTasks.BubleSort.BubbleSort(array);
+        System.out.println(new main.java.HabrTasks.BinarySearch.BinarySearch().BSearch(array,66));
         -->true
      */
     public boolean BSearch(int[] array, int value) {
