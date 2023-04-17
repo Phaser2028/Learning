@@ -13,10 +13,21 @@ import java.util.stream.Stream;
 public class Solution {
 
 
-
+    //https://www.hackerrank.com/challenges/java-comparator
+/*
+    class Checker implements Comparator<Player> {
+        @Override
+        public int compare(Player a, Player b) {
+            if(a.score==b.score){
+                return (int) Math.signum(a.name.compareTo(b.name));
+            }
+            return (int) Math.signum(b.score-a.score);
+        }
+    }
+*/
 
     //https://www.hackerrank.com/challenges/java-generics
-/**
+/*
     public class Solution<T> {
 
         public Solution(T[] array) {
