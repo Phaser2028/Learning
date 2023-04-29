@@ -14,36 +14,7 @@ public class Solution {
 
 
         //https://www.hackerrank.com/challenges/java-dequeue
-        //does not pass time tests
-        public void naiveUniqueNumbersInSubArrayCounter(){
-            Scanner in = new Scanner(System.in);
-            Deque deque = new ArrayDeque<>();
-            int n = in.nextInt();
-            int m = in.nextInt();
 
-            for (int i = 0; i < n; i++) {
-                int num = in.nextInt();
-                deque.addLast(num);
-            }
-
-            int uniqueNumbers = 0;
-            int i = 0;
-            while (deque.size()>i){
-                if(deque.stream().skip(i).limit(m).count() <3)
-                    break;
-                Object[] s = deque.stream().skip(i).limit(m).toArray();
-                Set<Integer> set = new HashSet<>();
-                for (Object v:
-                        s) {
-                    set.add((int)v);
-                }
-                if(set.size()>uniqueNumbers)
-                    uniqueNumbers=set.size();
-
-                i++;
-            }
-            System.out.println(uniqueNumbers);
-        }
 
 
 
