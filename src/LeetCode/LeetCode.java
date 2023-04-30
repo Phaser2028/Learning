@@ -10,6 +10,7 @@ public class LeetCode {
                     return new int[]{i,j};
             }
         }
+
         return new int[]{};
     }
 }
