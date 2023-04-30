@@ -12,6 +12,58 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+    //https://www.hackerrank.com/challenges/java-bitset
+    public static void bitOperations(){
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int m = in.nextInt();
+
+        BitSet bitSet1 = new BitSet(n);
+        BitSet bitSet2 = new BitSet(n);
+
+
+        Map<Integer,BitSet> bitSetMap = new HashMap<>();
+
+        bitSetMap.put(1,bitSet1);
+        bitSetMap.put(2,bitSet2);
+
+        while (m-->0){
+
+
+            String operator = in.next();;
+            Integer arg1 = in.nextInt();
+            Integer arg2 = in.nextInt();
+
+            switch (operator){
+
+                case "AND":
+                    bitSetMap.get(arg1).and(bitSetMap.get(arg2));
+                    System.out.println(bitSet1.cardinality()+" "+bitSet2.cardinality());
+                    break;
+                case "SET":
+                    bitSetMap.get(arg1).set(arg2);
+                    System.out.println(bitSet1.cardinality()+" "+bitSet2.cardinality());
+                    break;
+                case "FLIP":
+                    bitSetMap.get(arg1).flip(arg2);
+                    System.out.println(bitSet1.cardinality()+" "+bitSet2.cardinality());
+                    break;
+                case "OR":
+                    bitSetMap.get(arg1).or(bitSetMap.get(arg2));
+                    System.out.println(bitSet1.cardinality()+" "+bitSet2.cardinality());
+                    break;
+                case "XOR":
+                    bitSetMap.get(arg1).xor(bitSetMap.get(arg2));
+                    System.out.println(bitSet1.cardinality()+" "+bitSet2.cardinality());
+                    break;
+
+
+            }
+        }
+    }
+
+
 
     //https://www.hackerrank.com/challenges/java-dequeue
     public void uniqueNumbersInSubDequeCounter() {
