@@ -12,6 +12,24 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+    //https://www.hackerrank.com/challenges/java-singleton
+//    class Singleton{
+//        public String str;
+//        private Singleton(){}
+//        public static Singleton instance;
+//
+//        static Singleton getSingleInstance(){
+//            if (instance == null) {
+//                instance = new Singleton();
+//            }
+//            return instance;
+//        }
+//    }
+
+
+
+
+
     //https://www.hackerrank.com/challenges/java-bitset
     public static void bitOperations(){
         Scanner in = new Scanner(System.in);
