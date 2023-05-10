@@ -1,9 +1,18 @@
 package LeetCode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class LeetCode {
+
+    //https://leetcode.com/problems/contains-duplicate
+    public boolean containsDuplicate(int[] nums) {
+        return new HashSet<>(List.of(Arrays.stream(nums).boxed().toArray(Integer[]::new))).size()!=nums.length;
+    }
+
+
+
+
+
 
     //https://leetcode.com/problems/roman-to-integer
     public static int romanToInt(String s) {
