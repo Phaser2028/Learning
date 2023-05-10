@@ -12,6 +12,37 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+    //https://www.hackerrank.com/challenges/java-lambda-expressions
+    public void lambdaExpressions(){
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        while (q-- > 0) {
+            int func = in.nextInt();
+            int arg = in.nextInt();
+            switch (func) {
+                case 1:
+                    System.out.println(arg % 2 == 0 ? "EVEN" : "ODD");
+                    break;
+                case 2:
+                    int c = 0;
+                    int d = 2;
+                    while (d < arg) {
+                        if (arg  % d == 0) {
+                            c++;
+                        }
+                        d++;
+                    }
+                    boolean isPrime = c <= 0;
+
+                    System.out.println(isPrime?"PRIME":"COMPOSITE");
+                    break;
+                case 3:
+                    String reversed = new StringBuilder(String.valueOf(arg)).reverse().toString();
+                    System.out.println(String.valueOf(arg).equals(reversed)?"PALINDROME":"NOT PALINDROME");
+                    break;
+            }
+        }
+    }
 
 
     //https://www.hackerrank.com/challenges/java-exception-handling-try-catch
