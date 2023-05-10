@@ -12,6 +12,24 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+
+
+    //https://www.hackerrank.com/challenges/java-exception-handling-try-catch
+    public void exceptionHandler(){
+        Scanner in = new Scanner(System.in);
+        try{
+            int a = in.nextInt();
+            int b = in.nextInt();
+            System.out.println(a/b);
+        }
+        catch (InputMismatchException exception){
+            System.out.println("java.util.InputMismatchException");
+        }
+        catch(ArithmeticException exception){
+            System.out.println("java.lang.ArithmeticException: / by zero");
+        }
+    }
+
     //https://www.hackerrank.com/challenges/java-singleton
 //    class Singleton{
 //        public String str;
@@ -25,9 +43,6 @@ public class Solution {
 //            return instance;
 //        }
 //    }
-
-
-
 
 
     //https://www.hackerrank.com/challenges/java-bitset
