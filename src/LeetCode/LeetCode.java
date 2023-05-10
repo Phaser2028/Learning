@@ -4,14 +4,18 @@ import java.util.*;
 
 public class LeetCode {
 
-    //https://leetcode.com/problems/contains-duplicate
-    public boolean containsDuplicate(int[] nums) {
-        return new HashSet<>(List.of(Arrays.stream(nums).boxed().toArray(Integer[]::new))).size()!=nums.length;
+    //https://leetcode.com/problems/missing-number
+    public int missingNumber(int[] nums) {
+        //S = (a(1) + a(n)) * n / 2
+        return (((1+nums.length)*nums.length)/2) - Arrays.stream(nums).sum();
     }
 
 
 
-
+    //https://leetcode.com/problems/contains-duplicate
+    public boolean containsDuplicate(int[] nums) {
+        return new HashSet<>(List.of(Arrays.stream(nums).boxed().toArray(Integer[]::new))).size()!=nums.length;
+    }
 
 
     //https://leetcode.com/problems/roman-to-integer
