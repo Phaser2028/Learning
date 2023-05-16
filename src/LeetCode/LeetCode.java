@@ -4,6 +4,67 @@ import java.util.*;
 
 public class LeetCode {
 
+
+    //https://leetcode.com/problems/add-two-numbers
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+
+
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+        ListNode result = new ListNode();
+        ListNode node = result;
+
+        int i = 0;
+
+        while(l1!=null||l2!=null||i!=0){
+            int a = l1 != null ? l1.val : 0;
+            int b = l2 != null ? l2.val : 0;
+
+            int sum = i + a + b;
+
+            i = sum / 10;
+
+
+            node.next = new ListNode(sum%10);
+            node = node.next;
+
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+
+        }
+
+        return result.next;
+
+    }
+
+
+
+
+
+
+
+
     //https://leetcode.com/problems/missing-number
     public int missingNumber(int[] nums) {
         //S = (a(1) + a(n)) * n / 2
