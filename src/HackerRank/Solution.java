@@ -1,5 +1,6 @@
 package HackerRank;
 
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.*;
@@ -11,6 +12,22 @@ import java.util.stream.Stream;
 
 
 public class Solution {
+
+    //https://www.hackerrank.com/challenges/java-reflection-attributes
+//    public static void main(String[] args){
+//        Class student = Main.Student.class;
+//        Method[] methods = student.getDeclaredMethods();
+//
+//        ArrayList<String> methodList = new ArrayList<>();
+//        for (int i = 0; i < methods.length; i++) {
+//            methodList.add(methods[i].getName());
+//        }
+//        Collections.sort(methodList);
+//        for(String name: methodList){
+//            System.out.println(name);
+//        }
+//
+//    }
 
     //https://www.hackerrank.com/challenges/java-lambda-expressions
     public void lambdaExpressions(){
