@@ -13,6 +13,21 @@ import java.util.stream.Stream;
 
 public class Solution {
 
+    //https://www.hackerrank.com/challenges/simple-addition-varargs
+    static class  Add {
+        public void add(int... nums) {
+            int sum=0;
+            for (int i = 0; i < nums.length; i++) {
+                System.out.print(nums[i]);
+                sum += nums[i];
+                if(i!=nums.length-1)
+                    System.out.print("+");
+            }
+            System.out.print("=");
+            System.out.println(sum);
+        }
+    }
+
     //https://www.hackerrank.com/challenges/java-factory
 //    interface Food {
 //        public String getType();
