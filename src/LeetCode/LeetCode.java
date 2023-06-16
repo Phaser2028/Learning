@@ -5,6 +5,32 @@ import java.util.*;
 public class LeetCode {
 
 
+    //https://leetcode.com/problems/merge-strings-alternately
+    public static String mergeAlternately(String word1, String word2) {
+
+        StringBuilder res = new StringBuilder();
+
+        byte pos1 = 0;
+        byte pos2 = 0;
+
+        while (pos1< word1.length()||pos2<word2.length()){
+            if(pos1< word1.length()) {
+                res.append(word1.charAt(pos1));
+                pos1++;
+            }
+            if(pos2<word2.length()){
+                res.append(word2.charAt(pos2));
+                pos2++;
+            }
+        }
+
+        return res.toString();
+
+    }
+
+
+
+
     //https://leetcode.com/problems/add-two-numbers
 
     public static class ListNode {
