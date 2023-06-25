@@ -4,6 +4,41 @@ import java.util.*;
 
 public class LeetCode {
 
+
+    //https://leetcode.com/problems/valid-parentheses
+    public static boolean isValid(String s) {
+
+        if (s.charAt(0) == ')' || s.charAt(0) == ']' || s.charAt(0) == '}')
+            return false;
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.empty()) {
+                    return false;
+                }
+                if (c == ')' && stack.peek() == '(') {
+                    stack.pop();
+                } else if (c == '}' && stack.peek() == '{') {
+                    stack.pop();
+                } else if (c == ']' && stack.peek() == '[') {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            }
+
+        }
+        return stack.empty();
+    }
+
+
+
+
+
     //https://leetcode.com/problems/longest-common-prefix
     public static String longestCommonPrefix(String[] strs) {
 
