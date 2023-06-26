@@ -3,7 +3,16 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+    //https://leetcode.com/problems/valid-anagram/
+    public static boolean isAnagram(String s, String t) {
+        char[] first = s.toCharArray();
+        char[] second = t.toCharArray();
 
+        Arrays.sort(first);
+        Arrays.sort(second);
+
+        return Arrays.equals(first, second);
+    }
 
     //https://leetcode.com/problems/valid-parentheses
     public static boolean isValid(String s) {
