@@ -3,6 +3,31 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+
+    //https://leetcode.com/problems/group-anagrams
+    public static List<List<String>> groupAnagrams(String[] strs) {
+
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String s : strs) {
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            String keyStr = new String(c);
+
+            if (!map.containsKey(keyStr))
+                map.put(keyStr, new ArrayList<>());
+
+            map.get(keyStr).add(s);
+        }
+
+
+        List<List<String>> res = new LinkedList<>(map.values());
+        return res;
+    }
+
+
+
     //https://leetcode.com/problems/valid-anagram/
     public static boolean isAnagram(String s, String t) {
         char[] first = s.toCharArray();
