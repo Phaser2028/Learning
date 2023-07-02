@@ -4,6 +4,43 @@ import java.util.*;
 
 public class LeetCode {
 
+
+    //https://leetcode.com/problems/top-k-frequent-elements
+    public static int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+
+        int[] res = new int[k];
+
+        for (Integer i :
+                nums) {
+
+            if (!map.containsKey(i))
+                map.put(i, new ArrayList<>());
+            map.get(i).add(i);
+        }
+
+        int i = 0;
+        while (i < k) {
+            int maxLength = 0;
+            Integer longestKey = null;
+            for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+                int length = entry.getValue().size();
+                if (length > maxLength) {
+                    maxLength = length;
+                    longestKey = entry.getKey();
+                }
+            }
+
+            res[i] = longestKey;
+            map.remove(longestKey);
+            i++;
+        }
+
+
+        return res;
+    }
+
+
     //https://leetcode.com/problems/group-anagrams
     public static List<List<String>> groupAnagrams(String[] strs) {
 
@@ -25,7 +62,6 @@ public class LeetCode {
         List<List<String>> res = new LinkedList<>(map.values());
         return res;
     }
-
 
 
     //https://leetcode.com/problems/valid-anagram/
@@ -68,9 +104,6 @@ public class LeetCode {
         }
         return stack.empty();
     }
-
-
-
 
 
     //https://leetcode.com/problems/longest-common-prefix
