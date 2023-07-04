@@ -5,6 +5,32 @@ import java.util.*;
 public class LeetCode {
 
 
+
+    //https://leetcode.com/problems/product-of-array-except-self
+    public static int[] productExceptSelf(int[] nums) {
+        int l = nums.length;
+        int[] res = new int[l];
+//
+//        int[] prefix = new int[l];
+//        int[] postfix = new int[l];
+
+        int pr = 1;
+        for (int i = 0; i < l; i++) {
+            res[i] = pr;
+            pr = pr * nums[i];
+        }
+
+        int ps = 1;
+        for (int i = l-1; i > -1; i--) {
+
+            res[i] = ps*res[i];
+            ps = ps * nums[i];
+        }
+
+        return res;
+    }
+
+
     //https://leetcode.com/problems/top-k-frequent-elements
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, List<Integer>> map = new HashMap<>();
