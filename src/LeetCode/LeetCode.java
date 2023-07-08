@@ -3,6 +3,17 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+    //https://leetcode.com/problems/valid-palindrome
+    public static boolean isPalindrome(String s) {
+        String s1 = s.replaceAll("[^A-Za-zР-пр-џ0-9]","").toLowerCase();
+        System.out.println(s1);
+        StringBuilder stringBuilder = new StringBuilder(s1);
+
+        return stringBuilder.reverse().toString().equals(s1);
+    }
+
+
+
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock
     public static int maxProfit(int[] prices) {
         //7, 1, 5, 3, 6, 4
