@@ -3,6 +3,32 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+    //https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+    public static int maxProfit(int[] prices) {
+        //7, 1, 5, 3, 6, 4
+        //1, 2, 3, 4, 5, 6
+
+        int l = 0;
+        int r = 0;
+        int profit = 0;
+        int max = 0;
+
+        while (r < prices.length) {
+            if (prices[l] < prices[r]) {
+                profit = prices[r] - prices[l];
+                if (max < profit) {
+                    max = profit;
+                } else {
+                    r++;
+                }
+            } else {
+                l = r;
+                r++;
+            }
+
+        }
+        return max;
+    }
 
     //https://leetcode.com/problems/binary-search
     public static int search(int[] nums, int target) {
