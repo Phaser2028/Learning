@@ -3,9 +3,74 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+        public boolean isValidSudoku(char[][] board) {
+          Map<Integer,Set<Character>> row = new HashMap();
+
+     Map<Integer,Set<Character>> col = new HashMap();
+
+       Map<Integer,Set<Character>> box = new HashMap();
+
+ 
+
+      for(int i= 0;i<9;i++){
+
+        row.put(i,new HashSet<>());
+
+        col.put(i,new HashSet<>());
+
+        box.put(i,new HashSet<>());
+
+        
+
+      }
+
+      
+
+      for(int i = 0; i<9;i++){
+
+        for(int j = 0; j<9;j++){
+
+        if(board[i][j]=='.')
+            continue;
+            
+
+        if(!row.get(i).add(board[i][j])){
+
+          return false;
+
+        }
+
+        if(!col.get(j).add(board[i][j])){
+
+          return false;
+
+        }
+
+        if(!box.get(3*(i/3)+(j/3)).add(board[i][j])){
+
+          return false;
+
+        }
+
+        col.get(j).add(board[i][j]);
+
+        row.get(i).add(board[i][j]);
+
+        box.get(3*(i/3)+(j/3)).add(board[i][j]);
+
+        
+
+        }
+
+ 
+
+      }
+
+      return true;
+        }
     //https://leetcode.com/problems/valid-palindrome
     public static boolean isPalindrome(String s) {
-        String s1 = s.replaceAll("[^A-Za-zÀ-ßà-ÿ0-9]","").toLowerCase();
+        String s1 = s.replaceAll("[^A-Za-zÃ€-ÃŸÃ -Ã¿0-9]","").toLowerCase();
         System.out.println(s1);
         StringBuilder stringBuilder = new StringBuilder(s1);
 
