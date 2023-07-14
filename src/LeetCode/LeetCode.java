@@ -3,15 +3,85 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+
+    //https://leetcode.com/problems/longest-consecutive-sequence
+    public static int longestConsecutive(int[] nums) {
+
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        Set<Integer> set = new TreeSet<>();
+        int longestLength = 1;
+        int length = 1;
+
+        for (Integer i : nums)
+            set.add(i);
+
+        for (int cur : set) {
+            if (set.contains(cur + 1)) {
+                length++;
+                if (length > longestLength) {
+                    longestLength = length;
+                }
+            } else {
+                length = 1;
+            }
+        }
+
+        return longestLength;
+    }
+    //https://leetcode.com/problems/valid-sudoku
+    public static boolean isValidSudoku(char[][] board) {
+        Map<Integer, Set<Character>> row = new HashMap<>();
+        Map<Integer, Set<Character>> col = new HashMap<>();
+        Map<Integer, Set<Character>> box = new HashMap<>();
+
+
+        for (int i = 0; i < 9; i++) {
+            if (!row.containsKey(i)) {
+                row.put(i, new HashSet<>());
+            }
+            if (!col.containsKey(i)) {
+                col.put(i, new HashSet<>());
+            }
+            if (!box.containsKey(i)) {
+                box.put(i, new HashSet<>());
+            }
+        }
+
+
+        for (int i = 0; i < 9; i++) {
+
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == '.')
+                    continue;
+                if (row.get(i).contains(board[i][j])) {
+                    return false;
+                }
+                if (col.get(i).contains(board[i][j])) {
+                    return false;
+                }
+
+                row.get(i).add(board[i][j]);
+                col.get(i).add(board[i][j]);
+
+            }
+        }
+
+
+        return true;
+
+    }
+
     //https://leetcode.com/problems/valid-palindrome
     public static boolean isPalindrome(String s) {
-        String s1 = s.replaceAll("[^A-Za-zР-пр-џ0-9]","").toLowerCase();
+        String s1 = s.replaceAll("[^A-Za-zР-пр-џ0-9]", "").toLowerCase();
         System.out.println(s1);
         StringBuilder stringBuilder = new StringBuilder(s1);
 
         return stringBuilder.reverse().toString().equals(s1);
     }
-
 
 
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock
@@ -75,9 +145,9 @@ public class LeetCode {
         }
 
         int ps = 1;
-        for (int i = l-1; i > -1; i--) {
+        for (int i = l - 1; i > -1; i--) {
 
-            res[i] = ps*res[i];
+            res[i] = ps * res[i];
             ps = ps * nums[i];
         }
 
