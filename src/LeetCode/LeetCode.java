@@ -4,6 +4,29 @@ import java.util.*;
 
 public class LeetCode {
 
+
+
+    //https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+    public static int[] twoSumII(int[] numbers, int target) {
+        short l = 0;
+        short r = (short) (numbers.length-1);
+
+        while (l < r) {
+
+            if (numbers[l] + numbers[r] > target)
+                r--;
+            else if (numbers[l] + numbers[r] < target) {
+
+                l++;
+            } else {
+                System.gc();
+                return new int[]{l+1,r+1};
+            }
+        }
+        System.gc();
+        return new int[]{};
+    }
+
     //https://leetcode.com/problems/longest-consecutive-sequence
     public static int longestConsecutive(int[] nums) {
 
