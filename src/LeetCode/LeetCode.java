@@ -4,8 +4,17 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/single-number
+    public static int singleNumber(int[] nums) {//XOR
+        short mask = 0;
+        for (int i = 0; i < nums.length; i++)
+            mask ^= nums[i];
+
+        return mask;
+    }
+
     //https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
-    public static List<Integer> findDisappearedNumbers(int[] nums) {
+    public static List<Integer> findDisappearedNumbers(int[] nums) {//cyclic-sort
         List<Integer> res = new ArrayList<>();
 
         int n = 0; //10^5
