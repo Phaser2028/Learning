@@ -4,6 +4,32 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> res = new ArrayList<>();
+
+        int n = 0; //10^5
+        while (n < nums.length-1) {
+            int pos = nums[n] - 1;
+
+            if (nums[n] != nums[pos]) {
+                int cur =  nums[n];
+                nums[n] = nums[pos];
+                nums[pos] = cur;
+            }
+            else {
+                n++;
+            }
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                res.add(i + 1);
+            }
+        }
+        System.gc();
+        return res;
+    }
 
 
     //https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
