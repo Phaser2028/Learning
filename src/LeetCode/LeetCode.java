@@ -4,6 +4,20 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/climbing-stairs
+    public static int climbStairs(int n) {
+
+        int[] steps = new int[2];
+
+        steps[0]=1;
+        steps[1]=2;
+
+        for(int i=2; i<n; i++){
+            steps[i%2] = steps[0]+steps[1];
+        }
+        return steps[(n-1)%2];
+    }
+
     //https://leetcode.com/problems/single-number
     public static int singleNumber(int[] nums) {//XOR
         short mask = 0;
