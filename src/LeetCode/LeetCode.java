@@ -4,15 +4,22 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/count-odd-numbers-in-an-interval-range
+    public static int countOdds(int low, int high) {
+        return (high - low + 1) % 2 == 0 ?
+                (high - low + 1) / 2 : high % 2 == 0 & low % 2 == 0 ?
+                (high - low) / 2 : 1 + (high - low) / 2;
+    }
+
     //https://leetcode.com/problems/climbing-stairs
     public static int climbStairs(int n) {
 
         int[] steps = new int[2];
 
-        steps[0]=1;
-        steps[1]=2;
+        steps[0] = 1;
+        steps[1] = 2;
 
-        for(int i=2; i<n; i++){
+        for (int i = 2; i < n; i++) {
             steps[i%2] = steps[0]+steps[1];
         }
         return steps[(n-1)%2];
