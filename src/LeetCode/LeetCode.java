@@ -4,6 +4,22 @@ import java.util.*;
 
 public class LeetCode {
 
+
+    //https://leetcode.com/problems/kids-with-the-greatest-number-of-candies
+    public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> res = new ArrayList<>(candies.length);
+
+        byte max = Byte.MIN_VALUE;
+
+        for (int candy : candies) {
+            max = (byte) Math.max(max, candy);
+        }
+        for (int candy : candies) {
+            res.add((candy + extraCandies) >= max);
+        }
+        return res;
+    }
+
     //https://leetcode.com/problems/greatest-common-divisor-of-strings
     public static String gcdOfStrings(String str1, String str2) {
         if(!(str1 + str2).equals(str2 + str1))
