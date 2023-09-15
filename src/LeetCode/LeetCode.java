@@ -4,6 +4,27 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/greatest-common-divisor-of-strings
+    public static String gcdOfStrings(String str1, String str2) {
+        if(!(str1 + str2).equals(str2 + str1))
+            return "";
+
+        int a = Math.max(str1.length(),str2.length());
+        int b = Math.min(str1.length(),str2.length());
+
+        int r = a % b;
+
+        while (r>0){
+            a = b;
+            b = r;
+            r = a % b;
+        }
+        return str1.substring(0,b);
+
+    }
+
+
+
     //https://leetcode.com/problems/count-odd-numbers-in-an-interval-range
     public static int countOdds(int low, int high) {
         return (high - low + 1) % 2 == 0 ?
