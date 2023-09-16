@@ -4,6 +4,52 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/reverse-vowels-of-a-string
+    public static String reverseVowels(String s) {
+        char[] letters = s.toCharArray();
+        int l = 0;
+        int r = letters.length - 1;
+        char temp;
+
+        boolean leftCheck;
+        boolean rightCheck;
+
+
+        while (l <= r) {
+
+            leftCheck = letters[l] == 'a' || letters[l] == 'e' || letters[l] == 'i' ||
+                    letters[l] == 'o' || letters[l] == 'u' ||
+                    letters[l] == 'A' || letters[l] == 'E' || letters[l] == 'I' ||
+                    letters[l] == 'O' || letters[l] == 'U';
+
+
+            rightCheck = letters[r] == 'a' || letters[r] == 'e' || letters[r] == 'i' ||
+                    letters[r] == 'o' || letters[r] == 'u' ||
+                    letters[r] == 'A' || letters[r] == 'E' || letters[r] == 'I' ||
+                    letters[r] == 'O' || letters[r] == 'U';
+
+            if (leftCheck && rightCheck) {
+
+                temp = letters[l];
+
+                letters[l] = letters[r];
+                letters[r] = temp;
+
+                r--;
+                l++;
+
+            } else if (!leftCheck && rightCheck) {
+                l++;
+            } else if (leftCheck && !rightCheck) {
+                r--;
+            } else if (!leftCheck && !rightCheck) {
+                r--;
+                l++;
+            }
+        }
+        return new String(letters);
+    }
+
     //https://leetcode.com/problems/can-place-flowers
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
 
