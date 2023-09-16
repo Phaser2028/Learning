@@ -4,6 +4,41 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/can-place-flowers
+    public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+
+        int count = 0;
+
+        int l = 0;
+        int r = 0;
+
+        for (int i = 0; i < flowerbed.length; i++) {
+
+
+            if (i==0&&flowerbed.length>1) {
+                l = 0;
+                r = flowerbed[i + 1];
+            }
+            else if (flowerbed.length>1&&i == flowerbed.length - 1) {
+
+                r = 0;
+                l = flowerbed[i - 1];
+
+            } else if(flowerbed.length>2) {
+                l = flowerbed[i - 1];
+                r = flowerbed[i + 1];
+            }
+
+            if (flowerbed[i] == 0 && l==0 && r==0) {
+                flowerbed[i] = 1;
+                count++;
+            }
+
+
+        }
+        return count >= n;
+
+    }
 
     //https://leetcode.com/problems/kids-with-the-greatest-number-of-candies
     public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
