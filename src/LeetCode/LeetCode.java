@@ -11,11 +11,13 @@ public class LeetCode {
 
         String temp;
         StringBuilder res = new StringBuilder();
+
         for (int i = 0; i < (words.length) / 2; i++) {
             temp = words[i];
             words[i] = words[words.length-1-i];
             words[words.length - i - 1] = temp;
         }
+
         for (String i :
                 words) {
             res.append(i+" ");
