@@ -4,6 +4,25 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/reverse-words-in-a-string
+    public static String reverseWords(String s) {
+
+        String[] words = s.trim().replaceAll("\\s+", " ").split(" ");
+
+        String temp;
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < (words.length) / 2; i++) {
+            temp = words[i];
+            words[i] = words[words.length-1-i];
+            words[words.length - i - 1] = temp;
+        }
+        for (String i :
+                words) {
+            res.append(i+" ");
+        }
+        return res.toString().trim();
+    }
+
     //https://leetcode.com/problems/reverse-vowels-of-a-string
     public static String reverseVowels(String s) {
         char[] letters = s.toCharArray();
