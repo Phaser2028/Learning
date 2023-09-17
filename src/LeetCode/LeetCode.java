@@ -4,6 +4,23 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/increasing-triplet-subsequence
+    public static boolean increasingTriplet(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        int mid = Integer.MAX_VALUE;
+
+        for (int num : nums) {
+            if (num < min) {
+                min = num;
+            } else if (num > min && num < mid) {
+                mid = num;
+            } else if (num > mid) {
+                return true;
+            }
+        }
+        return  false;
+    }
+
     //https://leetcode.com/problems/reverse-words-in-a-string
     public static String reverseWords(String s) {
 
