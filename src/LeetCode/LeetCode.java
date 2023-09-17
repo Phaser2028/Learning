@@ -4,6 +4,20 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/two-sum
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++){
+            if(!map.containsKey(target - nums[i])){
+                map.put(nums[i],i);
+            }else {
+                return new int[]{map.get(target - nums[i]),i};
+            }
+        }
+        return new int[]{};
+    }
+
+
     //https://leetcode.com/problems/increasing-triplet-subsequence
     public static boolean increasingTriplet(int[] nums) {
         int min = Integer.MAX_VALUE;
@@ -694,7 +708,7 @@ public class LeetCode {
 
 
     //https://leetcode.com/problems/two-sum
-    public int[] twoSum(int[] nums, int target) {
+    public int[] twoSumNaive(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target)
