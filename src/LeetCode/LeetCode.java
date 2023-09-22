@@ -4,6 +4,29 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/container-with-most-water
+    public static int maxArea(int[] height) {
+        int a = 0, b = height.length - 1;
+//        int S = (b - a) * Math.min(height[a], height[b]);
+        int S;
+        int S_MAX = Integer.MIN_VALUE;
+
+        while (a<b){
+            S = (b - a) * Math.min(height[a], height[b]);
+            if(S_MAX<S){
+                S_MAX = S;
+            }
+            if(height[a] < height[b]){
+                a++;
+            } else if (height[a] >= height[b]) {
+                b--;
+            }
+
+        }
+        return S_MAX;
+
+    }
+
     //https://leetcode.com/problems/is-subsequence
     public static boolean isSubsequence(String s, String t) {
 
