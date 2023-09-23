@@ -5,6 +5,29 @@ import java.util.*;
 public class LeetCode {
 
     //https://leetcode.com/problems/max-number-of-k-sum-pairs
+    public static int maxOperationsEffective(int[] nums, int k) {
+        Arrays.sort(nums);
+
+        int a = 0, b = nums.length - 1;
+        int count = 0;
+
+
+        while (a<b){
+            if(nums[a]+nums[b]<k){
+                a++;
+            }else if(nums[a]+nums[b]>k) {
+                b--;
+            }else {
+                a++;
+                b--;
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    //https://leetcode.com/problems/max-number-of-k-sum-pairs
     public static int maxOperations(int[] nums, int k) {
         Arrays.sort(nums);
         TreeMap<Integer, Integer> map = new TreeMap<>();
