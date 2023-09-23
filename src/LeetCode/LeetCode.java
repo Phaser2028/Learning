@@ -4,6 +4,35 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/max-number-of-k-sum-pairs
+    public static int maxOperations(int[] nums, int k) {
+        Arrays.sort(nums);
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int a = 0, b = nums.length - 1;
+        int count = 0;
+
+
+        for (int i = 0; i < nums.length; i++) {
+            map.put(i, nums[i]);
+        }
+
+        while (a<b){
+            if(map.get(a)+map.get(b)<k){
+                a++;
+            }else if(map.get(a)+map.get(b)>k) {
+                b--;
+            }else {
+                map.remove(a);
+                map.remove(b);
+                a++;
+                b--;
+                count++;
+            }
+        }
+
+        return count;
+    }
+
     //https://leetcode.com/problems/container-with-most-water
     public static int maxArea(int[] height) {
         int a = 0, b = height.length - 1;
