@@ -5,6 +5,36 @@ import java.util.*;
 public class LeetCode {
 
     //https://leetcode.com/problems/3sum/
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+
+        HashSet<List<Integer>> set = new HashSet<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+
+            int a = i+1, b = nums.length - 1;
+
+
+            while (a<b) {
+                int sum = nums[i]+nums[a] + nums[b];
+                if (sum< 0)
+                    a++;
+                else if (sum > 0)
+                    b--;
+                else {
+                    set.add(List.of(nums[i], nums[a], nums[b]));
+                    a++;
+                    b--;
+                }
+            }
+        }
+        return new ArrayList<>(set);
+    }
+
+    //https://leetcode.com/problems/3sum/
     public static List<List<Integer>> threeSumNotEffective(int[] nums) {
         Arrays.sort(nums);
 
