@@ -4,6 +4,33 @@ import java.util.*;
 
 public class LeetCode {
 
+    //https://leetcode.com/problems/3sum/
+    public static List<List<Integer>> threeSumNotEffective(int[] nums) {
+        Arrays.sort(nums);
+
+        Set<List<Integer>> set = new LinkedHashSet<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int cur = nums[i];
+            int a = i+1, b = nums.length - 1;
+
+            while (a<b) {
+                if (cur + nums[a] + nums[b] < 0)
+                    a++;
+                else if (cur + nums[a] + nums[b] > 0)
+                    b--;
+                else {
+                    set.add(List.of(cur, nums[a], nums[b]));
+                    a++;
+                    b--;
+                }
+            }
+        }
+
+        return new ArrayList<>(set);
+    }
+
+
     //https://leetcode.com/problems/max-number-of-k-sum-pairs
     public static int maxOperationsEffective(int[] nums, int k) {
         Arrays.sort(nums);
