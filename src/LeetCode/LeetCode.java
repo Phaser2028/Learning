@@ -3,6 +3,36 @@ package LeetCode;
 import java.util.*;
 
 public class LeetCode {
+    //https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length
+    public static int maxVowels(String s, int k) {
+
+        char[] c = s.toCharArray();
+        int countVowels = 0;
+
+        for (int i = 0; i < k; i++) {
+            if(isVowel(c[i])) {
+                countVowels++;
+            }
+        }
+        int max = countVowels;
+
+
+        for (int i = k; i < s.length(); i++) {
+            if (isVowel(c[i])){
+                countVowels++;
+            }
+            if(isVowel(c[i-k])) {
+                countVowels--;
+            }
+            max = Math.max(max,countVowels);
+        }
+
+        return  max;
+    }
+    private static boolean isVowel(char c){
+        return c == 'a' || c == 'e' || c == 'i' ||
+                c == 'o' || c == 'u';
+    }
 
     //https://leetcode.com/problems/maximum-average-subarray-i
     public static double findMaxAverage(int[] nums, int k) {
